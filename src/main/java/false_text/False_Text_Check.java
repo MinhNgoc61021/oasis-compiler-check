@@ -75,8 +75,8 @@ public class False_Text_Check {
             false_result_data.append(line.toString()).append(newLine);
         }
 
-        // System.out.println(true_result_data.toString());
-        // System.out.println(false_result_data.toString());
+         System.out.println(true_result_data.toString());
+         System.out.println(false_result_data.toString());
 
         true_result.put("trueResult", true_result_data);
         false_result.put("falseResult", false_result_data);

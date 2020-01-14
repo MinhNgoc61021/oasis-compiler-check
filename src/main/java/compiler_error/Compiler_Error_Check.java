@@ -18,7 +18,7 @@ public class Compiler_Error_Check {
         for (String line: compile_error_arr) {
             // Phân tích chuỗi vd: symbol: class Account
             if (line.matches("(.*)^(symbol):(.*)")) {
-                json_err_msg.put("symbol", line.split("symbol:")[1].split("class")[1].trim());
+                json_err_msg.put("symbol", line.split("symbol:")[1].trim());
             }
             // Phân tích chuỗi vd: location: class MyTest
             else if (line.matches("(.*)^(location):(.*)")) {

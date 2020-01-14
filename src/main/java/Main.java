@@ -16,11 +16,12 @@ public class Main {
         JSONObject json_error = error.Jsonify(compiler_error_msg);
         System.out.println(json_error.toString());
 
-        String err = "testDeposit2(MyTest): expected:<[Giao dich 1: Nap tien $1000.00. So du luc nay: $1000.00.]> but was:<[Yeu cau khong hop le!]>";
+        String err = "testWithdraw1(MyTest): expected:<[So tien ban rut ra] khong hop le!> but was:<[Yeu cau khong hop le!\n" +
+                "Yeu cau] khong hop le!>";
 
         False_Text_Check false_text_check = new False_Text_Check();
         false_text_check.Jsonify(err);
-        System.out.println(false_text_check.getTrue_result());
-        System.out.println(false_text_check.getFalse_result());
+//        System.out.println(false_text_check.getTrue_result());
+//        System.out.println(false_text_check.getFalse_result());
     }
 }
