@@ -1,4 +1,4 @@
-package false_text;
+package false_test;
 
 import org.json.JSONObject;
 
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.regex.Pattern;
 
-public class False_Text_Check {
+public class False_Test_Check {
     private JSONObject true_result;
     private JSONObject false_result;
 
@@ -55,9 +55,6 @@ public class False_Text_Check {
                 but_was_queue.add(line_array[1].split("but was:")[1].split("<")[1].split(">")[0]);
             }
         }
-        // gán lại false để xử lý các msg sau
-        expected = false;
-        but_was = false;
 
         // System.out.println(expected_queue.toString());
         // System.out.println(but_was_queue.toString());
@@ -75,8 +72,8 @@ public class False_Text_Check {
             false_result_data.append(line.toString()).append(newLine);
         }
 
-         System.out.println(true_result_data.toString());
-         System.out.println(false_result_data.toString());
+//         System.out.println(true_result_data.toString());
+//         System.out.println(false_result_data.toString());
 
         true_result.put("trueResult", true_result_data);
         false_result.put("falseResult", false_result_data);
