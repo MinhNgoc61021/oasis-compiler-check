@@ -10,23 +10,6 @@ import java.util.regex.Pattern;
 public class False_Test_Check {
     private JSONObject result;
     private JSONArray diff_error_array = new JSONArray();
-
-    public JSONArray getDiff_error_array() {
-        return diff_error_array;
-    }
-
-    public void setDiff_error_array(JSONArray diff_error_array) {
-        this.diff_error_array = diff_error_array;
-    }
-
-    public JSONObject getDiff_error() {
-        return diff_error;
-    }
-
-    public void setDiff_error(JSONObject diff_error) {
-        this.diff_error = diff_error;
-    }
-
     private JSONObject diff_error = new JSONObject();
 
     public void Jsonify(String input) {
@@ -98,5 +81,22 @@ public class False_Test_Check {
 
         diff_error.put("ShowDiffError", diff_error_array);
     }
+
+    public JSONArray getDiff_error_array() {
+        return diff_error_array;
+    }
+
+    public void setDiff_error_array(JSONArray diff_error_array) {
+        this.diff_error_array = diff_error_array;
+    }
+
+    public JSONObject getDiff_error() {
+        return diff_error;
+    }
+
+    public void setDiff_error(JSONObject diff_error) {
+        this.diff_error = diff_error;
+    }
+
 
 }
