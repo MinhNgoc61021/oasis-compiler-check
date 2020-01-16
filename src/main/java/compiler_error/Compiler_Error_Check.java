@@ -32,9 +32,11 @@ public class Compiler_Error_Check {
                     if (split_string.trim().matches("(.*)^[\\d]+$(.*)")) {
                         json_err_msg.put("line", split_string);
                     }
-                    else if (split_string.matches("(.*)^(\\w+)\\.(java)$(.*)")) {
-                        json_err_msg.put("message", line_array[line_array.length - 1].trim());
+                    else if (split_string.trim().matches("(.*)^(\\w+)\\.(java)$(.*)")) {
                         json_err_msg.put("className", line_array[0].split(".java")[0].trim());
+                    }
+                    else if (split_string.trim().matches("(.*)^(error)$(.*)")) {
+                        json_err_msg.put("message", line_array[line_array.length - 1].trim());
                     }
                 }
             }
