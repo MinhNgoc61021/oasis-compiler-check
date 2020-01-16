@@ -11,6 +11,7 @@ public class Compiler_Error_Check {
         Pattern regex = Pattern.compile("\n", Pattern.MULTILINE);
 
         // Tạo phần tử JSON để lưu lỗi
+        JSONObject highlight = new JSONObject();
         JSONObject json_err_msg = new JSONObject();
         String[] compile_error_arr = regex.split(input);
 
@@ -41,6 +42,7 @@ public class Compiler_Error_Check {
                 }
             }
         }
-        return json_err_msg;
+        highlight.put("HighlightCompilerError", json_err_msg);
+        return highlight;
     }
 }

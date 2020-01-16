@@ -139,16 +139,11 @@ public class Main {
 
         System.out.println("False Test: ");
         List<String> false_test_list = string_process.toFalseTestArray(test_err);
-        for (String each_error: false_test_list) {
-            False_Test_Check false_test_check = new False_Test_Check();
-            false_test_check.Jsonify(each_error);
-            System.out.println(false_test_check.getTrue_result());
-            System.out.println(false_test_check.getFalse_result());
-        }
-
         False_Test_Check false_test_check = new False_Test_Check();
-        false_test_check.Jsonify(test_err);
-        System.out.println(false_test_check.getTrue_result());
-        System.out.println(false_test_check.getFalse_result());
+        for (String each_error: false_test_list) {
+            false_test_check.Jsonify(each_error);
+        }
+        System.out.println(false_test_check.getDiff_error());
+
     }
 }

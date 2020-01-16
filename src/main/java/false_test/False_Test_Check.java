@@ -1,5 +1,6 @@
 package false_test;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.LinkedList;
@@ -7,12 +8,29 @@ import java.util.Queue;
 import java.util.regex.Pattern;
 
 public class False_Test_Check {
-    private JSONObject true_result;
-    private JSONObject false_result;
+    private JSONObject result;
+    private JSONArray diff_error_array = new JSONArray();
+
+    public JSONArray getDiff_error_array() {
+        return diff_error_array;
+    }
+
+    public void setDiff_error_array(JSONArray diff_error_array) {
+        this.diff_error_array = diff_error_array;
+    }
+
+    public JSONObject getDiff_error() {
+        return diff_error;
+    }
+
+    public void setDiff_error(JSONObject diff_error) {
+        this.diff_error = diff_error;
+    }
+
+    private JSONObject diff_error = new JSONObject();
 
     public void Jsonify(String input) {
-        true_result = new JSONObject();
-        false_result = new JSONObject();
+        result = new JSONObject();
         String newLine = System.getProperty("line.separator");
 
         Pattern regex = Pattern.compile("\n", Pattern.MULTILINE);
@@ -74,27 +92,11 @@ public class False_Test_Check {
 
 //         System.out.println(true_result_data.toString());
 //         System.out.println(false_result_data.toString());
+        result.put("trueResult", true_result_data);
+        result.put("falseResult", false_result_data);
+        diff_error_array.put(result);
 
-        true_result.put("trueResult", true_result_data);
-        false_result.put("falseResult", false_result_data);
-
-        setTrue_result(true_result);
-        setFalse_result(false_result);
+        diff_error.put("ShowDiffError", diff_error_array);
     }
 
-    public JSONObject getTrue_result() {
-        return true_result;
-    }
-
-    private void setTrue_result(JSONObject true_result) {
-        this.true_result = true_result;
-    }
-
-    public JSONObject getFalse_result() {
-        return false_result;
-    }
-
-    private void setFalse_result(JSONObject false_result) {
-        this.false_result = false_result;
-    }
 }
