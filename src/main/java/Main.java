@@ -8,6 +8,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
         Compiler_Error_Check error = new Compiler_Error_Check();
         String compiler_error_msg = "MyTest.java:23: error: cannot find symbol\n" +
                 "depositMethod = JavaReflection.getMethod(Account.class, deposit, void.class, ,\n" +

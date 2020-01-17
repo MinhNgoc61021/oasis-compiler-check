@@ -7,10 +7,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.regex.Pattern;
 
+// Xử lý lỗi sai
 public class False_Test_Check {
-    private JSONObject result;
-    private JSONArray diff_error_array = new JSONArray();
-    private JSONObject diff_error = new JSONObject();
+    private JSONObject result; // JSON đẻ lưu lỗi false result và true result
+    private JSONArray diff_error_array = new JSONArray(); // mảng JSON để đẩy result vào
+    private JSONObject diff_error = new JSONObject(); // JSON để lưu vào ShowDiffError
 
     public void Jsonify(String input) {
         result = new JSONObject();
@@ -57,9 +58,6 @@ public class False_Test_Check {
             }
         }
 
-        // System.out.println(expected_queue.toString());
-        // System.out.println(but_was_queue.toString());
-
         StringBuffer true_result_data = new StringBuffer();
         StringBuffer false_result_data = new StringBuffer();
 
@@ -73,8 +71,6 @@ public class False_Test_Check {
             false_result_data.append(line.toString()).append(newLine);
         }
 
-//         System.out.println(true_result_data.toString());
-//         System.out.println(false_result_data.toString());
         result.put("trueResult", true_result_data);
         result.put("falseResult", false_result_data);
         diff_error_array.put(result);

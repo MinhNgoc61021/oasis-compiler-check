@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import java.util.regex.Pattern;
 
+// Xử lý lỗi compiler
 public class Compiler_Error_Check {
 
     // Phân tích lỗi từ chuỗi thành JSON

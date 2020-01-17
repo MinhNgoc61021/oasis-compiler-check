@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.regex.Pattern;
 
+// xử lý chuỗi nhập vào thành mảng/danh sách
 public class String_Process {
     private String[] compiler_error_array;
     private List<String> false_test_list;
@@ -24,12 +25,17 @@ public class String_Process {
         int expected_count = 0;
 
         for (String line: false_test_array) {
+            // khi gặp expected
             if (line.contains("expected:")) {
                 expected_count++;
+                // nếu expected gặp lần đầu thì tăng lên, khi đó lưu vào queue
                 if (expected_count == 1) {
                     each_error_queue.add(line);
                 }
+                // nếu gặp trên 1 lần, tức là khi gặp lỗi mới thi đẩy hết chuỗi chứa trong queue vào error_string
+                // sau khi duyệt hết queue thì đẩy error_string vào false_test_list
                 else {
+                    //
                     StringBuffer error_string = new StringBuffer();
                     for (Object error_each_line: each_error_queue) {
                         error_string.append(error_each_line.toString()).append(newLine);
@@ -39,6 +45,7 @@ public class String_Process {
                     false_test_list.add(error_string.toString());
                 }
             }
+            // nếu ko có cứ đẩy vào queue
             else {
                 each_error_queue.add(line);
             }
