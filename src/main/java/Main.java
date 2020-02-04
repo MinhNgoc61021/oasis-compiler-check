@@ -144,7 +144,7 @@ public class Main {
         for (String each_error: false_test_list) {
             false_test_check.Jsonify(each_error);
         }
-        System.out.println(false_test_check.getDiff_error());
+        System.out.println(false_test_check.getHighlight());
 
     }
 }

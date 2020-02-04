@@ -9,8 +9,9 @@ import java.util.regex.Pattern;
 
 // Xử lý lỗi sai
 public class False_Test_Check {
-    private JSONObject result; // JSON đẻ lưu lỗi false result và true result
+    private JSONObject result;
     private JSONArray diff_error_array = new JSONArray(); // mảng JSON để đẩy result vào
+    private JSONObject highlight = new JSONObject(); // JSON JSON đẻ lưu false result và true result
     private JSONObject diff_error = new JSONObject(); // JSON để lưu vào ShowDiffError
 
     public void Jsonify(String input) {
@@ -73,26 +74,13 @@ public class False_Test_Check {
 
         result.put("trueResult", true_result_data);
         result.put("falseResult", false_result_data);
-        diff_error_array.put(result);
+        diff_error.put("ShowDiffError", result);
+        diff_error_array.put(diff_error);
 
-        diff_error.put("ShowDiffError", diff_error_array);
+        highlight.put("highlight", diff_error_array);
     }
 
-    public JSONArray getDiff_error_array() {
-        return diff_error_array;
+    public JSONObject getHighlight() {
+        return highlight;
     }
-
-    public void setDiff_error_array(JSONArray diff_error_array) {
-        this.diff_error_array = diff_error_array;
-    }
-
-    public JSONObject getDiff_error() {
-        return diff_error;
-    }
-
-    public void setDiff_error(JSONObject diff_error) {
-        this.diff_error = diff_error;
-    }
-
-
 }

@@ -9,14 +9,14 @@ import java.util.regex.Pattern;
 // xử lý chuỗi nhập vào thành mảng/danh sách
 public class String_Process {
     private String[] compiler_error_array;
-    private List<String> false_test_list;
+    private ArrayList<String> false_test_list;
 
     public String[] toCompilerErrorArray(String compiler_error) {
         Pattern regex = Pattern.compile("(?<=(.))\\n(.+\\.java)", Pattern.MULTILINE);
         compiler_error_array = regex.split(compiler_error);
         return compiler_error_array;
     }
-    public List<String> toFalseTestArray(String false_text) {
+    public ArrayList<String> toFalseTestArray(String false_text) {
         false_test_list = new ArrayList<>();
         Pattern regex = Pattern.compile("\n", Pattern.MULTILINE);
         String newLine = System.getProperty("line.separator");
