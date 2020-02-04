@@ -9,13 +9,12 @@ import java.util.regex.Pattern;
 
 // Xử lý lỗi sai
 public class False_Test_Check {
-    private JSONObject result;
+    private JSONObject result = new JSONObject();;
     private JSONArray diff_error_array = new JSONArray(); // mảng JSON để đẩy result vào
     private JSONObject highlight = new JSONObject(); // JSON JSON đẻ lưu false result và true result
     private JSONObject diff_error = new JSONObject(); // JSON để lưu vào ShowDiffError
 
     public void Jsonify(String input) {
-        result = new JSONObject();
         String newLine = System.getProperty("line.separator");
 
         Pattern regex = Pattern.compile("\n", Pattern.MULTILINE);
